@@ -408,9 +408,7 @@ function handleUploadImageChange(src) {
 
 
 function downloadBingo() {
-  console.log("Click");
   let bingoDivData = document.getElementsByClassName('bingo-div');
-  console.log(bingoDivData);
 
   html2canvas(bingoDivData[0], { 
     useCors:true,
