@@ -1,0 +1,72 @@
+body {
+  font-family: 'Roboto', 'Helvetica';
+}
+
+.menu-div {
+  float: left;
+  border: 2px solid black;
+  padding: 10px;
+}
+
+#download-btn {
+  margin-bottom: 10px;
+  background-color: rgb(0, 169, 0);
+  color: white;
+  border-radius: 5px;
+  border:none;
+  height: 30px;
+  width: 75px;
+}
+
+#download-btn:hover {
+  cursor: pointer;
+  background-color: rgb(0, 131, 0);
+}
+
+#bingo-title {
+  text-align: center;
+  overflow: hidden;
+}
+
+.bingo-div {
+  background-color: white;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.bingo-table {
+  border: 2px solid black;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.bingo-table td {
+  border: 2px solid black;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.bingo-table td>img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+  object-fit: contain;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.caption-div {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.image-div div:nth-child(even) {
+  background-color: rgb(211, 211, 255);
+  padding-top: 10px;
+  padding-bottom:10px;
+}

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bingo Maker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu-div">
+        <h1>Menu</h1>
+        <p style="color: red;">*Does not work on mobile*</p>
+        <button id="download-btn" onclick="downloadBingo()">Download</button>
+        <form class="menu-form">
+          <div class="row">
+            <div class="col">
+              <label for="title">Title: </label>
+              <input type="text" class="title-text" id="title"
+              oninput="handleTextCaptionChange(this);">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input class="form-check" type="checkbox" name="captionCheck" id="captionCheck" checked onchange="handleCaptionCheckChange(this);">
+              <label for="captionCheck" class="form-label">Caption/Subtitle for Cell</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input class="form-check" type="checkbox" name="imageCheck" id="imageCheck" checked onchange="handleImageCheckChange(this);">
+              <label for="imageCheck" class="form-label">Images</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="caption-div">
+              <div class="row">
+                <div class="col">
+                  <label for="R1C1">R1 C1</label>
+                  <input type="text" class="caption-text" id="R1C1" oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R1C2">R1 C2</label>
+                  <input type="text" class="caption-text" id="R1C2"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R1C3">R1 C3</label>
+                  <input type="text" class="caption-text" id="R1C3"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R1C4">R1 C4</label>
+                  <input type="text" class="caption-text" id="R1C4"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R1C5">R1 C5</label>
+                  <input type="text" class="caption-text" id="R1C5"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R2C1">R2 C1</label>
+                  <input type="text" class="caption-text" id="R2C1"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R2C2">R2 C2</label>
+                  <input type="text" class="caption-text" id="R2C2"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R2C3">R2 C3</label>
+                  <input type="text" class="caption-text" id="R2C3"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R2C4">R2 C4</label>
+                  <input type="text" class="caption-text" id="R2C4"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R2C5">R2 C5</label>
+                  <input type="text" class="caption-text" id="R2C5"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R3C1">R3 C1</label>
+                  <input type="text" class="caption-text" id="R3C1"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R3C2">R3 C2</label>
+                  <input type="text" class="caption-text" id="R3C2"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R3C3">R3 C3</label>
+                  <input type="text" class="caption-text" id="R3C3"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R3C4">R3 C4</label>
+                  <input type="text" class="caption-text" id="R3C4"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R3C5">R3 C5</label>
+                  <input type="text" class="caption-text" id="R3C5"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R4C1">R4 C1</label>
+                  <input type="text" class="caption-text" id="R4C1"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R4C2">R4 C2</label>
+                  <input type="text" class="caption-text" id="R4C2"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R4C3">R4 C3</label>
+                  <input type="text" class="caption-text" id="R4C3"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R4C4">R4 C4</label>
+                  <input type="text" class="caption-text" id="R4C4"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R4C5">R4 C5</label>
+                  <input type="text" class="caption-text" id="R4C5"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R5C1">R5 C1</label>
+                  <input type="text" class="caption-text" id="R5C1"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R5C2">R5 C2</label>
+                  <input type="text" class="caption-text" id="R5C2"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R5C3">R5 C3</label>
+                  <input type="text" class="caption-text" id="R5C3"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R5C4">R5 C4</label>
+                  <input type="text" class="caption-text" id="R5C4"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R5C5">R5 C5</label>
+                  <input type="text" class="caption-text" id="R5C5"oninput="handleTextCaptionChange(this);">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="image-div">
+              <div class="row">
+                <div class="col">
+                  <label for="R1C1-img">R1 C1</label>
+                  <input type="file" id="R1C1-img" name="R1C1-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R1C2-img">R1 C2</label>
+                  <input type="file" id="R1C2-img" name="R1C2-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R1C3-img">R1 C3</label>
+                  <input type="file" id="R1C3-img" name="R1C3-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R1C4-img">R1 C4</label>
+                  <input type="file" id="R1C4-img" name="R1C4-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R1C5-img">R1 C5</label>
+                  <input type="file" id="R1C5-img" name="R1C5-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R2C1-img">R2 C1</label>
+                  <input type="file" id="R2C1-img" name="R2C1-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R2C2-img">R2 C2</label>
+                  <input type="file" id="R2C2-img" name="R2C2-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R2C3-img">R2 C3</label>
+                  <input type="file" id="R2C3-img" name="R2C3-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R2C4-img">R2 C4</label>
+                  <input type="file" id="R2C4-img" name="R2C4-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R2C5-img">R2 C5</label>
+                  <input type="file" id="R2C5-img" name="R2C5-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div><div class="row">
+                <div class="col">
+                  <label for="R3C1-img">R3 C1</label>
+                  <input type="file" id="R3C1-img" name="R3C1-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R3C2-img">R3 C2</label>
+                  <input type="file" id="R3C2-img" name="R3C2-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R3C3-img">R3 C3</label>
+                  <input type="file" id="R3C3-img" name="R3C3-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R3C4-img">R3 C4</label>
+                  <input type="file" id="R3C4-img" name="R3C4-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R3C5-img">R3 C5</label>
+                  <input type="file" id="R3C5-img" name="R3C5-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div><div class="row">
+                <div class="col">
+                  <label for="R4C1-img">R4 C1</label>
+                  <input type="file" id="R4C1-img" name="R4C1-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R4C2-img">R4 C2</label>
+                  <input type="file" id="R4C2-img" name="R4C2-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R4C3-img">R4 C3</label>
+                  <input type="file" id="R4C3-img" name="R4C3-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R4C4-img">R4 C4</label>
+                  <input type="file" id="R4C4-img" name="R4C4-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R4C5-img">R4 C5</label>
+                  <input type="file" id="R4C5-img" name="R4C5-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div><div class="row">
+                <div class="col">
+                  <label for="R5C1-img">R5 C1</label>
+                  <input type="file" id="R5C1-img" name="R5C1-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R5C2-img">R5 C2</label>
+                  <input type="file" id="R5C2-img" name="R5C2-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R5C3-img">R5 C3</label>
+                  <input type="file" id="R5C3-img" name="R5C3-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R5C4-img">R5 C4</label>
+                  <input type="file" id="R5C4-img" name="R5C4-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="R5C5-img">R5 C5</label>
+                  <input type="file" id="R5C5-img" name="R5C5-img" accept="image/*" onchange="handleUploadImageChange(this)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="bingo-div">
+        <h1 id="bingo-title">Bingo</h1>
+        <table class="bingo-table">
+          <!-- <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+            <th>Column 5</th>
+          </tr> -->
+          <tr>
+            <td><span id="R1C1-span">R1 C1</span></td>
+            <td><span id="R1C2-span">R1 C2</span></td>
+            <td><span id="R1C3-span">R1 C3</span></td>
+            <td><span id="R1C4-span">R1 C4</span></td>
+            <td><span id="R1C5-span">R1 C5</span></td>
+          </tr>
+          <tr>
+            <td><span id="R2C1-span">R2 C1</span></td>
+            <td><span id="R2C2-span">R2 C2</span></td>
+            <td><span id="R2C3-span">R2 C3</span></td>
+            <td><span id="R2C4-span">R2 C4</span></td>
+            <td><span id="R2C5-span">R2 C5</span></td>
+          </tr>
+          <tr>
+            <td><span id="R3C1-span">R2 C1</span></td>
+            <td><span id="R3C2-span">R2 C2</span></td>
+            <td><span id="R3C3-span">R2 C3</span></td>
+            <td><span id="R3C4-span">R2 C4</span></td>
+            <td><span id="R3C5-span">R2 C5</span></td>
+          </tr>
+          <tr>
+            <td><span id="R4C1-span">R4 C1</span></td>
+            <td><span id="R4C2-span">R4 C2</span></td>
+            <td><span id="R4C3-span">R4 C3</span></td>
+            <td><span id="R4C4-span">R4 C4</span></td>
+            <td><span id="R4C5-span">R4 C5</span></td>
+          </tr>
+          <tr>
+            <td><span id="R5C1-span">R5 C1</span></td>
+            <td><span id="R5C2-span">R5 C2</span></td>
+            <td><span id="R5C3-span">R5 C3</span></td>
+            <td><span id="R5C4-span">R5 C4</span></td>
+            <td><span id="R5C5-span">R5 C5</span></td>
+          </tr>
+        </table>
+      </div>
+      <canvas id="canvas" width="1000px" height="1000px"></canvas>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
